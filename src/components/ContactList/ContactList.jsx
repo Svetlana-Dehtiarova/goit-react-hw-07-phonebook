@@ -8,9 +8,15 @@ const ContactList = () => {
 
   return (
     <ul className={css.list}>
-      {contacts.map(({ id, name, phone }) => {
-        return <ContactItem key={id} id={id} name={name} phone={phone} />;
-      })}
+      {contacts.length ? (
+        contacts.map(({ id, name, phone }) => (
+          <ContactItem key={id} id={id} name={name} phone={phone} />
+        ))
+      ) : (
+        <p className={css.text}>
+          Unfortunately, there are no contacts with such parameters...
+        </p>
+      )}
     </ul>
   );
 };
