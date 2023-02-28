@@ -20,12 +20,6 @@ export function App() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (error) {
-      <p>Oops... Something went wrong :(</p>;
-    }
-  }, [error]);
-
   return (
     <div>
       <h1 className={css.phonBookTitle}>Phonebook</h1>
@@ -39,6 +33,7 @@ export function App() {
       ) : (
         <p>Phonebook is empty. Please, add your first contact:)</p>
       )}
+      {error && <p>Oops... Something went wrong :(</p>}
       {isLoading && <Loader />}
     </div>
   );
